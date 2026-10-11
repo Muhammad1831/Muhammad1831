@@ -39,7 +39,32 @@ const escapeXml = (value) => String(value)
   .replaceAll(">", "&gt;")
   .replaceAll('"', "&quot;");
 
+async function fetchCommitTotal() {
+  const token = process.env.GH_PAT || process.env.GITHUB_TOKEN;
+  if (token) {
+    for (let attempt = 1; attempt <= 2; attempt += 1) {
+      try {
+        const response = await fetch(`https://api.github.com/search/commits?q=author:${encodeURIComponent(username)}`, {
+          headers: {
+            Accept: "application/vnd.github.cloak-preview",
+            Authorization: `token ${token}`,
+            "User-Agent": "sajjad-dehghan-snake-enhancer",
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (typeof data.total_count === "number") return String(data.total_count);
+        }
+      } catch {}
+      await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+    }
+  }
+  return null;
+}
+
 async function fetchContributionTotal() {
+  const commitTotal = await fetchCommitTotal();
+  if (commitTotal) return commitTotal;
   const url = `https://github.com/users/${encodeURIComponent(username)}/contributions`;
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {

@@ -32,6 +32,8 @@ jobs:
         run: node scripts/enhance-snake.mjs
         env:
           GITHUB_USERNAME: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
 
       - name: Publish animation
         uses: crazy-max/ghaction-github-pages@v5
