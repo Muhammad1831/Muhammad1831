@@ -42,41 +42,40 @@ const escapeXml = (value) => String(value)
 async function fetchCommitTotal() {
   const token = process.env.GH_PAT || process.env.GITHUB_TOKEN;
   const username = process.env.GITHUB_USERNAME || process.env.GITHUB_REPOSITORY_OWNER || "Muhammad1831";
-  // Try repo-specific count for iswashow/iswatchi (user's private main projects)
   if (token) {
     try {
       const since = new Date(Date.now() - 365*24*60*60*1000).toISOString();
-      const repos = ["iswashow", "iswatchi"];
-      let totalPrivate = 0;
-      for (const repo of repos) {
-        let page = 1;
-        while (page <= 10) {
-          const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo)}/commits?since=${encodeURIComponent(since)}&per_page=100&page=${page}`;
+      let allRepos = [];
+      let page = 1;
+      while (page <= 10) {
+        const url = `https://api.github.com/user/repos?per_page=100&page=${page}&affiliation=owner`;
+        const res = await fetch(url, { headers: { Authorization: `token ${token}`, Accept: "application/vnd.github.v3+json", "User-Agent": "snake" } });
+        if (!res.ok) break;
+        const data = await res.json();
+        if (!Array.isArray(data) || data.length === 0) break;
+        allRepos = allRepos.concat(data.map(r => r.name));
+        if (data.length < 100) break;
+        page++;
+      }
+      if (allRepos.length === 0) allRepos = ["iswashow","iswatchi","ai-land","AlertifyMarket","Watch-Store","Baxi","pitza-mitza","TechBlog","Dariwall","body","WeatherApp","Safar","4-in-row"];
+      let totalAll = 0;
+      for (const repo of allRepos) {
+        let p = 1;
+        while (p <= 10) {
+          const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo)}/commits?since=${encodeURIComponent(since)}&per_page=100&page=${p}`;
           const res = await fetch(url, { headers: { Authorization: `token ${token}`, Accept: "application/vnd.github.v3+json", "User-Agent": "snake" } });
           if (!res.ok) break;
           const data = await res.json();
           if (!Array.isArray(data) || data.length === 0) break;
-          totalPrivate += data.length;
+          totalAll += data.length;
           if (data.length < 100) break;
-          page++;
+          p++;
         }
       }
-      if (totalPrivate > 0) {
-        // Also try search for other commits
-        try {
-          const searchRes = await fetch(`https://api.github.com/search/commits?q=author:${encodeURIComponent(username)}`, {
-            headers: { Accept: "application/vnd.github.cloak-preview", Authorization: `token ${token}`, "User-Agent": "snake" }
-          });
-          if (searchRes.ok) {
-            const j = await searchRes.json();
-            if (typeof j.total_count === "number" && j.total_count > totalPrivate) return String(j.total_count);
-          }
-        } catch {}
-        return String(totalPrivate);
-      }
+      if (totalAll > 0) return String(totalAll);
     } catch {}
   }
-  // Fallback to previous search
+  // Fallback to search
   if (token) {
     for (let attempt = 1; attempt <= 2; attempt += 1) {
       try {
@@ -97,6 +96,8 @@ async function fetchCommitTotal() {
   }
   return null;
 }
+
+
 
 
 async function fetchContributionTotal() {
