@@ -51,7 +51,7 @@ async function fetchCommitTotal() {
       for (const repo of repos) {
         let page = 1;
         while (page <= 10) {
-          const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo)}/commits?since=${encodeURIComponent(since)}&per_page=100&page=${page}&author=${encodeURIComponent(username)}`;
+          const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo)}/commits?since=${encodeURIComponent(since)}&per_page=100&page=${page}`;
           const res = await fetch(url, { headers: { Authorization: `token ${token}`, Accept: "application/vnd.github.v3+json", "User-Agent": "snake" } });
           if (!res.ok) break;
           const data = await res.json();
