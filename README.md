@@ -159,9 +159,9 @@ lib/
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Muhammad1831/Muhammad1831/output/github-contribution-grid-snake.svg" alt="snake eating contributions" />
+  <img src="https://raw.githubusercontent.com/Muhammad1831/Muhammad1831/output/github-activity-snake.svg" alt="snake eating contributions" />
 </p>
-<p align="center"><sub>🐍 Real contribution activity — auto-updates daily via GitHub Actions. First run starts in ~2 minutes. If you see a 404 for a few minutes, the workflow is still building the <code>output</code> branch.</sub></p>
+<p align="center"><sub>Real contribution activity, refreshed daily. The graph follows GitHub's visible contribution settings; private repository details are never exposed.</sub></p>
 
 ---
 

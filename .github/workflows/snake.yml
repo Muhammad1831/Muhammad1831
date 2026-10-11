@@ -1,26 +1,42 @@
-name: Generate Snake
+name: Generate contribution animation
 
 on:
-  schedule: [{ cron: "0 0 * * *" }]
+  schedule:
+    - cron: "17 0 * * *"
   workflow_dispatch:
-  push: { branches: ["main"] }
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - uses: Platane/snk@v3
+      - name: Check out the profile source
+        uses: actions/checkout@v5
+
+      - name: Generate the real contribution snake game
+        uses: Platane/snk/svg-only@v3
         with:
-          github_user_name: Muhammad1831
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-activity-snake.svg?color_snake=#794DC0&color_dots=#EFEDF5,#E0D2F4,#C5A7ED,#AE8AF8,#794DC0
+            dist/github-activity-snake-dark.svg?palette=github-dark&color_snake=#AE8AF8&color_dots=#18151D,#352744,#624783,#9170C9,#AE8AF8
+
+      - name: Add calendar labels and weighted progress
+        run: node scripts/enhance-snake.mjs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: crazy-max/ghaction-github-pages@v4
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+
+      - name: Publish animation
+        uses: crazy-max/ghaction-github-pages@v5
         with:
-          target_branch: output
           build_dir: dist
+          target_branch: output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
