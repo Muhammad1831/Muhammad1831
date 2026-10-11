@@ -45,7 +45,7 @@ I turn ideas into shippable Flutter apps: from concept and UI in Figma/XD → cl
 <td width="50%" valign="top">
 
 #### [DariWall — Digital Wallet](https://github.com/Muhammad1831/Dariwall)
-<p align="center"><img src="https://raw.githubusercontent.com/Muhammad1831/Dariwall/main/docs/showroom/welcome.png" width="100%" alt="DariWall — wallet onboarding"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Muhammad1831/Dariwall/main/docs/showroom/welcome.png" width="240" style="border-radius:12px; border:1px solid #30363D" alt="DariWall — wallet onboarding"/></p>
 
 Persian wallet experience: onboarding, balance, transfer/swap, transaction history, missions & invitations. **Product + Flutter RTL**.
 <br/>
@@ -55,7 +55,7 @@ Persian wallet experience: onboarding, balance, transfer/swap, transaction histo
 <td width="50%" valign="top">
 
 #### [Watch Store — E-Commerce](https://github.com/Muhammad1831/Watch-Store)
-<p align="center"><img src="assets/watch-store-preview.jpg" width="100%" alt="Watch Store — catalog, carousel, categories"/></p>
+<p align="center"><img src="assets/watch-store-preview.jpg" width="240" style="border-radius:12px; border:1px solid #30363D" alt="Watch Store — catalog, carousel, categories"/></p>
 
 Luxury watch marketplace: catalog, search, cart, authentication with **Bloc** architecture and Persian locale. **3 real captures now live.**
 <br/>
@@ -67,7 +67,7 @@ Luxury watch marketplace: catalog, search, cart, authentication with **Bloc** ar
 <td width="50%" valign="top">
 
 #### [Pitza Mitza — Food Ordering](https://github.com/Muhammad1831/pitza-mitza)
-<p align="center"><img src="assets/pitza-preview.jpg" width="100%" alt="Pitza Mitza — home with pizza & burger cards"/></p>
+<p align="center"><img src="assets/pitza-preview.jpg" width="240" style="border-radius:12px; border:1px solid #30363D" alt="Pitza Mitza — home with pizza & burger cards"/></p>
 
 Food ordering UX: menu, carousel, categories, cart & checkout flow — optimized for Persian users. **7 real screens now live.**
 <br/>
@@ -77,7 +77,7 @@ Food ordering UX: menu, carousel, categories, cart & checkout flow — optimized
 <td width="50%" valign="top">
 
 #### [Baxi — Ride & Delivery](https://github.com/Muhammad1831/Baxi)
-<p align="center"><img src="assets/baxi-preview.jpg" width="100%" alt="Baxi — live map University Acres with 4 tiers"/></p>
+<p align="center"><img src="assets/baxi-preview.jpg" width="240" style="border-radius:12px; border:1px solid #30363D" alt="Baxi — live map University Acres with 4 tiers"/></p>
 
 Ride-hailing & delivery prototype with live maps (`flutter_map`), Firebase, and location services. **6 real screens now live.**
 <br/>
@@ -89,7 +89,7 @@ Ride-hailing & delivery prototype with live maps (`flutter_map`), Firebase, and 
 <td width="50%" valign="top">
 
 #### [TechBlog — Content Platform](https://github.com/Muhammad1831/TechBlog)
-<p align="center"><img src="assets/techblog-preview.jpg" width="100%" alt="TechBlog — feed with دوازده قدم برنامه‌نویسی"/></p>
+<p align="center"><img src="assets/techblog-preview.jpg" width="240" style="border-radius:12px; border:1px solid #30363D" alt="TechBlog — feed with دوازده قدم برنامه‌نویسی"/></p>
 
 Persian tech blog: articles, categories, bookmarks, write/publish flow with rich HTML rendering. **6 real screens now live.**
 <br/>
@@ -99,7 +99,7 @@ Persian tech blog: articles, categories, bookmarks, write/publish flow with rich
 <td width="50%" valign="top">
 
 #### [WeatherApp — Minimal Weather](https://github.com/Muhammad1831/WeatherApp)
-<p align="center"><img src="https://via.placeholder.com/600x340/0EA5E9/FFFFFF?text=WeatherApp+%7C+Forecast+—+Next+to+Ship" width="100%" alt="WeatherApp preview"/></p>
+<p align="center"><img src="https://via.placeholder.com/300x300/0EA5E9/FFFFFF?text=WeatherApp+%7C+Forecast+—+Next+to+Ship" width="240" style="border-radius:12px; border:1px solid #30363D" alt="WeatherApp preview"/></p>
 
 Clean weather forecast app — current, hourly & daily views. Lightweight, fast, ready for API integration.
 <br/>
