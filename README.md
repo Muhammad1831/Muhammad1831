@@ -38,26 +38,26 @@ Currently exploring: advanced state management, offline-first UX, and building a
 
 ### ✨ Featured Showroom — Real apps. Real code.
 
-> Each preview is an actual Flutter implementation — not a mockup. Tap the title to open the repository. Screenshots are real app captures (add your own to `docs/showroom/`).
+> Each preview is an **actual Flutter render** — 4 projects now show **real device captures** (Watch Store • Pitza Mitza • Baxi • TechBlog). Tap the title to open the repository.. Tap the title to open the repository. Screenshots are real app captures (add your own to `docs/showroom/`).
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
 #### [DariWall — Digital Wallet](https://github.com/Muhammad1831/Dariwall)
-<p align="center"><img src="https://via.placeholder.com/600x340/02569B/FFFFFF?text=DariWall+%7C+Wallet+Onboarding+%26+Transactions" width="100%" alt="DariWall preview"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Muhammad1831/Dariwall/main/docs/showroom/welcome.png" width="100%" alt="DariWall — wallet onboarding"/></p>
 
 Persian wallet experience: onboarding, balance, transfer/swap, transaction history, missions & invitations. **Product + Flutter RTL**.
 <br/>
-<sub>Stack: Flutter · Provider · GoRouter · Dio · GetIt</sub> · <a href="https://github.com/Muhammad1831/Dariwall">Source ↗</a>
+<sub>Stack: Flutter · Provider · GoRouter · Dio · GetIt</sub> · <a href="https://github.com/Muhammad1831/Dariwall">Source ↗</a> · <a href="https://github.com/Muhammad1831/Dariwall/blob/main/docs/showroom/">Showroom ↗</a>
 
 </td>
 <td width="50%" valign="top">
 
 #### [Watch Store — E-Commerce](https://github.com/Muhammad1831/Watch-Store)
-<p align="center"><img src="https://via.placeholder.com/600x340/111827/FFFFFF?text=Watch+Store+%7C+E-Commerce" width="100%" alt="Watch Store preview"/></p>
+<p align="center"><img src="assets/watch-store-preview.jpg" width="100%" alt="Watch Store — catalog, carousel, categories"/></p>
 
-Luxury watch marketplace: catalog, search, cart, authentication with **Bloc** architecture and Persian locale.
+Luxury watch marketplace: catalog, search, cart, authentication with **Bloc** architecture and Persian locale. **3 real captures now live.**
 <br/>
 <sub>Stack: Flutter · Bloc · Dio · SharedPrefs</sub> · <a href="https://github.com/Muhammad1831/Watch-Store">Source ↗</a>
 
@@ -67,9 +67,9 @@ Luxury watch marketplace: catalog, search, cart, authentication with **Bloc** ar
 <td width="50%" valign="top">
 
 #### [Pitza Mitza — Food Ordering](https://github.com/Muhammad1831/pitza-mitza)
-<p align="center"><img src="https://via.placeholder.com/600x340/E63946/FFFFFF?text=Pitza+Mitza+%7C+Food+Delivery" width="100%" alt="Pitza Mitza preview"/></p>
+<p align="center"><img src="assets/pitza-preview.jpg" width="100%" alt="Pitza Mitza — home with pizza & burger cards"/></p>
 
-Food ordering UX: menu, carousel, categories, cart & checkout flow — optimized for Persian users.
+Food ordering UX: menu, carousel, categories, cart & checkout flow — optimized for Persian users. **7 real screens now live.**
 <br/>
 <sub>Stack: Flutter · GetX · GetStorage · Dio</sub> · <a href="https://github.com/Muhammad1831/pitza-mitza">Source ↗</a>
 
@@ -77,9 +77,9 @@ Food ordering UX: menu, carousel, categories, cart & checkout flow — optimized
 <td width="50%" valign="top">
 
 #### [Baxi — Ride & Delivery](https://github.com/Muhammad1831/Baxi)
-<p align="center"><img src="https://via.placeholder.com/600x340/F59E0B/FFFFFF?text=Baxi+%7C+Ride+Hailing" width="100%" alt="Baxi preview"/></p>
+<p align="center"><img src="assets/baxi-preview.jpg" width="100%" alt="Baxi — live map University Acres with 4 tiers"/></p>
 
-Ride-hailing & delivery prototype with live maps (`flutter_map`), Firebase, and location services.
+Ride-hailing & delivery prototype with live maps (`flutter_map`), Firebase, and location services. **6 real screens now live.**
 <br/>
 <sub>Stack: Flutter · GetX · Firebase · flutter_map</sub> · <a href="https://github.com/Muhammad1831/Baxi">Source ↗</a>
 
@@ -89,9 +89,9 @@ Ride-hailing & delivery prototype with live maps (`flutter_map`), Firebase, and 
 <td width="50%" valign="top">
 
 #### [TechBlog — Content Platform](https://github.com/Muhammad1831/TechBlog)
-<p align="center"><img src="https://via.placeholder.com/600x340/6366F1/FFFFFF?text=TechBlog+%7C+Articles+%26+CMS" width="100%" alt="TechBlog preview"/></p>
+<p align="center"><img src="assets/techblog-preview.jpg" width="100%" alt="TechBlog — feed with دوازده قدم برنامه‌نویسی"/></p>
 
-Persian tech blog: articles, categories, bookmarks, write/publish flow with rich HTML rendering.
+Persian tech blog: articles, categories, bookmarks, write/publish flow with rich HTML rendering. **6 real screens now live.**
 <br/>
 <sub>Stack: Flutter · GetX · Dio · cached_network_image</sub> · <a href="https://github.com/Muhammad1831/TechBlog">Source ↗</a>
 
@@ -99,7 +99,7 @@ Persian tech blog: articles, categories, bookmarks, write/publish flow with rich
 <td width="50%" valign="top">
 
 #### [WeatherApp — Minimal Weather](https://github.com/Muhammad1831/WeatherApp)
-<p align="center"><img src="https://via.placeholder.com/600x340/0EA5E9/FFFFFF?text=WeatherApp+%7C+Forecast" width="100%" alt="WeatherApp preview"/></p>
+<p align="center"><img src="https://via.placeholder.com/600x340/0EA5E9/FFFFFF?text=WeatherApp+%7C+Forecast+—+Next+to+Ship" width="100%" alt="WeatherApp preview"/></p>
 
 Clean weather forecast app — current, hourly & daily views. Lightweight, fast, ready for API integration.
 <br/>

@@ -1,0 +1,29 @@
+<svg width="1200" height="320" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#0F172A"/><stop offset="50%" stop-color="#1E293B"/><stop offset="100%" stop-color="#334155"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#D97706"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="320" rx="20" fill="url(#g)"/>
+<!-- subtle pattern -->
+<circle cx="950" cy="80" r="120" fill="white" opacity="0.04"/>
+<circle cx="1050" cy="240" r="80" fill="white" opacity="0.03"/>
+<text x="60" y="60" fill="#F59E0B" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="5">FLUTTER  •  BLOC  •  PERSIAN RTL</text>
+<text x="60" y="120" fill="white" font-family="Inter, sans-serif" font-size="46" font-weight="800">Watch Store</text>
+<text x="60" y="155" fill="white" font-family="Inter, sans-serif" font-size="16" opacity="0.9">Luxury Watch E-Commerce — From catalog to checkout</text>
+<text x="60" y="185" fill="#94A3B8" font-family="Inter, sans-serif" font-size="13">Bloc architecture · Dio · SharedPreferences · carousel_slider · RTL</text>
+<rect x="60" y="220" width="140" height="36" rx="18" fill="url(#gold)"/>
+<text x="130" y="242" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="12" font-weight="700">● LIVE APP</text>
+<text x="220" y="242" fill="#64748B" font-family="Inter, sans-serif" font-size="11">  Actual Flutter captures • Not mockups</text>
+<!-- watch icon -->
+<g transform="translate(880, 95)">
+  <rect x="0" y="0" width="180" height="180" rx="24" fill="white" opacity="0.08" stroke="white" stroke-opacity="0.15"/>
+  <text x="90" y="70" text-anchor="middle" font-size="48">⌚</text>
+  <text x="90" y="105" text-anchor="middle" fill="white" font-family="Inter" font-size="11" font-weight="600" opacity="0.9">GA-2000SU</text>
+  <text x="90" y="125" text-anchor="middle" fill="white" font-family="Inter" font-size="10" opacity="0.6">G-SHOCK • SEIKO</text>
+  <text x="90" y="150" text-anchor="middle" fill="#F59E0B" font-family="Inter" font-size="10" font-weight="700">تومان  •  سبد خرید  2</text>
+</g>
+</svg>
