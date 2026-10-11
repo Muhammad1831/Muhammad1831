@@ -149,7 +149,53 @@ function weightedProgressKeyframes(svg) {
   return `@keyframes u0{${frames.join("")}}`;
 }
 
+function addExtraDots(svg, needed) {
+  if (needed <= 0) return svg;
+  // Find empty cells: <rect class="c" x="..." y="..."> without extra cX
+  const emptyRegex = /<rect class="c" x="(\d+)" y="(\d+)" rx="2" ry="2"\/>/g;
+  const empty = [];
+  let m;
+  while ((m = emptyRegex.exec(svg)) !== null) {
+    empty.push({ x: m[1], y: m[2], full: m[0] });
+  }
+  // Find existing active ids and a sample keyframe block
+  const activeIds = [...svg.matchAll(/\.c\.c(\d+)\{fill:var\(--c([0-4])\);animation-name:c\1\}/g)].map(x=>x[1]);
+  const maxId = activeIds.length ? Math.max(...activeIds.map(Number)) : 0;
+  const sampleMatch = svg.match(/@keyframes c\d+\{[^}]+\}/);
+  const sampleKeyframe = sampleMatch ? sampleMatch[0] : "@keyframes c0{0%{fill:var(--c1)}100%{fill:var(--ce)}}";
+  let newSvg = svg;
+  // Shuffle empty
+  for (let i = empty.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [empty[i], empty[j]] = [empty[j], empty[i]];
+  }
+  const toAdd = Math.min(needed, empty.length);
+  let styleInsert = "";
+  for (let i = 0; i < toAdd; i++) {
+    const newId = maxId + 1 + i;
+    const lvl = (i % 4) + 1; // cycle 1-4
+    const cell = empty[i];
+    // Replace empty rect with active one
+    const newRect = `<rect class="c c${newId}" x="${cell.x}" y="${cell.y}" rx="2" ry="2"/>`;
+    newSvg = newSvg.replace(cell.full, newRect);
+    // Create keyframe at ~ i/toAdd * 80% + 10%
+    const start = (10 + (i / toAdd) * 80).toFixed(2);
+    const end = (parseFloat(start) + 0.3).toFixed(2);
+    const kf = `@keyframes c${newId}{${start}%{fill:var(--c${lvl})} ${end}%{fill:var(--ce)}}.c.c${newId}{fill:var(--c${lvl});animation-name:c${newId}}`;
+    styleInsert += kf;
+  }
+  // Inject new keyframes into style
+  newSvg = newSvg.replace("</style>", styleInsert + "</style>");
+  return newSvg;
+}
+
 function enhance(svg, theme, contributionTotal) {
+  // Expand grid to match commit count (133) if needed
+  const existingActive = (svg.match(/\.c\.c\d+\{fill:var\(--c[0-4]\);/g) || []).length;
+  const target = parseInt(String(contributionTotal).replace(/[^0-9]/g, ""), 10) || 0;
+  if (target > existingActive && target <= 400) {
+    svg = addExtraDots(svg, target - existingActive);
+  }
   const keyframeStart = svg.indexOf("@keyframes u0{");
   const keyframeEnd = svg.indexOf(".u.u0{", keyframeStart);
   if (keyframeStart >= 0 && keyframeEnd >= 0) {
