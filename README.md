@@ -26,7 +26,7 @@ I turn ideas into shippable Flutter apps: from concept and UI in Figma/XD → cl
 
 > **Ideas are cheap. Shipped apps that people actually use is the craft.**
 
-Currently exploring: advanced state management, offline-first UX, and building a portfolio of production-grade Flutter products.
+> 🔭 **Currently exploring:** `advanced state management (Bloc / GetX)` · `offline-first UX` · `Firebase & maps` — building a portfolio of production-grade Flutter products.
 
 <p align="center">
   <img src="assets/how-i-build.png" width="100%" alt="How I Build: 01 Discover — Understand the problem & user flow. 02 Design — Figma/XD, RTL, design system. 03 Build — Flutter, Bloc/GetX, Firebase/Dio, clean architecture. 04 Ship & Learn — Test, polish, iterate on real feedback." />
@@ -158,11 +158,10 @@ lib/
   <img src="https://github-profile-trophy.vercel.app/?username=Muhammad1831&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4" />
 </p>
 
-<!-- Snake animation — enable GitHub Actions to generate it daily (see GUIDE.md) -->
 <p align="center">
   <img src="https://raw.githubusercontent.com/Muhammad1831/Muhammad1831/output/github-contribution-grid-snake.svg" alt="snake eating contributions" />
 </p>
-<p align="center"><sub>Real contribution activity. Enable the workflow in <code>.github/workflows/snake.yml</code> to refresh daily.</sub></p>
+<p align="center"><sub>🐍 Real contribution activity — auto-updates daily via GitHub Actions. First run starts in ~2 minutes. If you see a 404 for a few minutes, the workflow is still building the <code>output</code> branch.</sub></p>
 
 ---
 
