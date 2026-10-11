@@ -167,8 +167,8 @@ function enhance(svg, theme, contributionTotal) {
   svg = svg.replace("</style>", `${extraCss}</style>`);
 
   const title = contributionTotal
-    ? `${escapeXml(contributionTotal)} contributions in the last year`
-    : "Real contribution activity &#183; last 12 months";
+    ? `${escapeXml(contributionTotal)} commits in the last year — میزان فعالیت`
+    : "Total commits &#183; last 12 months — میزان فعالیت";
   const headerAndAxes = `
     <rect x="-70" y="-64" width="988" height="254" rx="18" fill="${theme.background}" stroke="${theme.border}"/>
     <rect x="-56" y="-52" width="960" height="226" rx="14" fill="${theme.panel}" stroke="${theme.border}" stroke-opacity=".68"/>
