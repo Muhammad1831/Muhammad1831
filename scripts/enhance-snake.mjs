@@ -41,6 +41,42 @@ const escapeXml = (value) => String(value)
 
 async function fetchCommitTotal() {
   const token = process.env.GH_PAT || process.env.GITHUB_TOKEN;
+  const username = process.env.GITHUB_USERNAME || process.env.GITHUB_REPOSITORY_OWNER || "Muhammad1831";
+  // Try repo-specific count for iswashow/iswatchi (user's private main projects)
+  if (token) {
+    try {
+      const since = new Date(Date.now() - 365*24*60*60*1000).toISOString();
+      const repos = ["iswashow", "iswatchi"];
+      let totalPrivate = 0;
+      for (const repo of repos) {
+        let page = 1;
+        while (page <= 10) {
+          const url = `https://api.github.com/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo)}/commits?since=${encodeURIComponent(since)}&per_page=100&page=${page}&author=${encodeURIComponent(username)}`;
+          const res = await fetch(url, { headers: { Authorization: `token ${token}`, Accept: "application/vnd.github.v3+json", "User-Agent": "snake" } });
+          if (!res.ok) break;
+          const data = await res.json();
+          if (!Array.isArray(data) || data.length === 0) break;
+          totalPrivate += data.length;
+          if (data.length < 100) break;
+          page++;
+        }
+      }
+      if (totalPrivate > 0) {
+        // Also try search for other commits
+        try {
+          const searchRes = await fetch(`https://api.github.com/search/commits?q=author:${encodeURIComponent(username)}`, {
+            headers: { Accept: "application/vnd.github.cloak-preview", Authorization: `token ${token}`, "User-Agent": "snake" }
+          });
+          if (searchRes.ok) {
+            const j = await searchRes.json();
+            if (typeof j.total_count === "number" && j.total_count > totalPrivate) return String(j.total_count);
+          }
+        } catch {}
+        return String(totalPrivate);
+      }
+    } catch {}
+  }
+  // Fallback to previous search
   if (token) {
     for (let attempt = 1; attempt <= 2; attempt += 1) {
       try {
@@ -61,6 +97,7 @@ async function fetchCommitTotal() {
   }
   return null;
 }
+
 
 async function fetchContributionTotal() {
   const commitTotal = await fetchCommitTotal();
@@ -193,8 +230,13 @@ function enhance(svg, theme, contributionTotal) {
   // Expand grid to match commit count (133) if needed
   const existingActive = (svg.match(/\.c\.c\d+\{fill:var\(--c[0-4]\);/g) || []).length;
   const target = parseInt(String(contributionTotal).replace(/[^0-9]/g, ""), 10) || 0;
-  if (target > existingActive && target <= 400) {
-    svg = addExtraDots(svg, target - existingActive);
+  // Expand grid to match commit count (private Iswashow/Iswatchi included), capped at calendar max 371
+  if (target > existingActive) {
+    const maxCells = 371;
+    const cappedTarget = Math.min(target, maxCells);
+    if (cappedTarget > existingActive) {
+      svg = addExtraDots(svg, cappedTarget - existingActive);
+    }
   }
   const keyframeStart = svg.indexOf("@keyframes u0{");
   const keyframeEnd = svg.indexOf(".u.u0{", keyframeStart);
